@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+// This example is appropriate for the homework because
+// it tests everything about the four issues
+
+// Can have default values
+// Has only positional paratmeters
+// If not enough actual parameter other formals without default value are undefined 
+// Optional parameters cen be used directly
+function foo1(a, b, c = "formal c") {
+	console.log("a: " + a);
+	console.log("b: " + b);
+	console.log("c: " + c);
+}
+
+console.log("Foo1:");
+foo1("actual a", "actual b", "actual c");
+console.log("----------");
+console.log("Foo1:");
+foo1("actual a", "actual b");
+console.log("----------");
+console.log("Foo1:");
+foo1("actual a", "actual c");
+console.log("----------");
+console.log("Foo1:");
+foo1("actual a");
+console.log("----------");
+console.log("Foo1:");
+foo1();
+console.log("----------");
+
+// With object literals named variable value pair can be used
+function foo2(params){
+	for (var key in params)
+    	console.log(key + ": " + params[key]);
+}
+console.log("Foo2:");
+foo2({a: "actual a", b: "actual b"});
+console.log("----------");
+
+// Variable number of actual arameters is possible with ...args at the end
+function foo3(a, ...args) {
+	console.log("a: " + a) 
+	for(i = 0 ; i < args.length ; i++) {
+		console.log("" + i + ": " + args[i]);
+	}
+}
+console.log("Foo3:");
+foo3("actual a","actual b","actual c");
+console.log("----------");
+
+// Primitives are Passed by Value but Objects are Passed by Reference
+function  foo4(a, b){
+	a[1]="b of foo";
+	b++;
+}
+
+a = ["a of main"]; 
+b = 1;
+console.log("Before foo4: a = " + a + ", b = " + b);
+foo4(a, b);
+console.log("After foo4: a = " + a + ", b = " + b);
+
+</script>
+</body>
+</html>
